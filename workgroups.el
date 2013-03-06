@@ -2217,10 +2217,19 @@ The string is passed through a format arg to escape %'s."
 
 (defun wg-query-for-save ()
   "Query for save when `wg-dirty' is non-nil."
+  (wg-query-update-current) ; mc
   (or (not wg-dirty)
       (not (y-or-n-p "Save modified workgroups? "))
       (call-interactively 'wg-save)
       t))
+
+;mc
+(defun wg-query-update-current ()
+  (if (y-or-n-p "update current workgroup before saving? ")
+    (progn 
+      (message "\n\n\n *************************************************** \n\n\n")
+      (wg-update-workgroup (wg-current-workgroup)))
+  ))
 
 (defun wg-emacs-exit-query ()
   "Conditionally call `wg-query-for-save'.
