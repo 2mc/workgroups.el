@@ -2225,9 +2225,9 @@ The string is passed through a format arg to escape %'s."
 
 ;mc
 (defun wg-query-update-current ()
-  (if (y-or-n-p "update current workgroup before saving? ")
+  (if (y-or-n-p "update current  W O R K G R O U P  before saving? ")
     (progn 
-      (message "\n\n\n *************************************************** \n\n\n")
+      ;(message "\n\n\n *************************************************** \n\n\n")
       (wg-update-workgroup (wg-current-workgroup)))
   ))
 
